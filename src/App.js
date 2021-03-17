@@ -16,6 +16,14 @@ grid-template-columns:1fr 3fr 1fr;
 
 
 
+import Filtros from "./components/Filtros/Filtros";
+import "./App.css";
+import styled from "styled-components";
+
+const DivPai = styled.div`
+  display: flex;
+  margin: 10px;
+`;
 const listaDeProdutos = [
   {
     codigoProduto: 1,
@@ -59,18 +67,49 @@ export default class App extends React.Component {
     produtos: listaDeProdutos,
     carrinho: [],
 
+    inputValorMin: "",
+    inputValorMax: "",
+    inputBuscaNome: "",
   };
+
+  handleInputChangeMin = (event) => {
+    this.setState({ inputValorMin: event.target.value });
+  };
+
+  handleInputChangeMax = (event) => {
+    this.setState({ inputValorMax: event.target.value });
+  };
+
+  handleInputChangeBuscaNome = (event) => {
+    this.setState({ inputBuscaNome: event.target.value });
+  };
+
   render() {
     AdicionarProduto = ()=>{
       produtos.map()
     }
     return (
-
-
       <Commerce>
+        <DivPai>
         <div>
-          <h1> filtroAqui </h1>
+          <Filtros
+            inputValorMin={this.state.inputValorMin}
+            inputValorMax={this.state.inputValorMax}
+            inputBuscaNome={this.state.inputBuscaNome}
+            handleInputChangeMin={this.handleInputChangeMin}
+            handleInputChangeMax={this.handleInputChangeMax}
+            handleInputChangeBuscaNome={this.handleInputChangeBuscaNome}
+          />
         </div>
+        <div>
+          <Produtos
+            produtos={this.state.produtos}
+            inputValorMin={this.state.inputValorMin}
+            inputValorMax={this.state.inputValorMax}
+            inputBuscaNome={this.state.inputBuscaNome}
+          />
+        </div>
+      </DivPai>
         <div>
           <Produtos produtos={this.state.produtos} />
         </div>
