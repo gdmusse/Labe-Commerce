@@ -12,13 +12,14 @@ const ContainerCardProduto = styled.div`
 `;
 
 export class CardProdutos extends React.Component {
+  
   render() {
       return (
         <ContainerCardProduto>
           <img src={this.props.fotoProduto} alt={"Imagem do produto"} />
           <h3>{this.props.nomeProduto}</h3>
           <p>R${this.props.precoProduto}</p>
-          <button>Adicionar ao carrinho</button>
+          <button onClick = {this.props.AdicionarProduto}> Adicionar ao carrinho</button>
         </ContainerCardProduto>
       );
     }
