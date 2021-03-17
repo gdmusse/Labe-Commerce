@@ -1,5 +1,6 @@
 import React from "react";
 import { Produtos } from "./components/Produtos/Produtos";
+import Carrinho from "./components/Carrinho/Carrinho"
 import Filtros from "./components/Filtros/Filtros";
 import "./App.css";
 import styled from "styled-components";
@@ -81,6 +82,10 @@ export default class App extends React.Component {
             inputValorMax={this.state.inputValorMax}
             inputBuscaNome={this.state.inputBuscaNome}
           />
+        </div>
+
+        <div>
+          <Carrinho />
         </div>
       </DivPai>
     );
