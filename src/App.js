@@ -4,7 +4,7 @@ import { Produtos } from "./components/Produtos/Produtos";
 import "./App.css";
 import styled from "styled-components";
 
-const produtos = [
+const listaDeProdutos = [
   {
     nomeProduto: "Produto 1",
     fotoProduto: "https://picsum.photos/200/150?random=1",
@@ -38,10 +38,13 @@ const produtos = [
 ];
 
 export default class App extends React.Component {
+  state = {
+    produtos: listaDeProdutos,
+  };
   render() {
     return (
       <div>
-        <Produtos produtos={produtos} />
+        <Produtos produtos={this.state.produtos} />
       </div>
     );
   }
