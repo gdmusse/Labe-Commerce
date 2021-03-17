@@ -1,8 +1,19 @@
 import React from "react";
 import { Produtos } from "./components/Produtos/Produtos";
+import { Carrinho } from "./components/Produtos/Produtos";
 /* import {Filtros} from "./components/Filtros/Filtros"; */
 import "./App.css";
 import styled from "styled-components";
+
+
+const Commerce = styled.div `
+max-width:100vw;
+max-height:100vh;
+display:grid;
+grid-template-columns:1fr 3fr 1fr;
+
+`
+
 
 const listaDeProdutos = [
   {
@@ -43,9 +54,18 @@ export default class App extends React.Component {
   };
   render() {
     return (
-      <div>
-        <Produtos produtos={this.state.produtos} />
-      </div>
+
+      <Commerce>
+        <div>
+          <h1> filtroAqui </h1>
+        </div>
+        <div>
+          <Produtos produtos={this.state.produtos} />
+        </div>
+        <div>
+          <h1>Carrinho Aqui</h1>
+        </div>
+      </Commerce>
     );
   }
 }
