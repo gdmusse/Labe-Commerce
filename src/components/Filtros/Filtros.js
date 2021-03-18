@@ -21,19 +21,19 @@ export default class Filtros extends React.Component {
         <input
           type="number"
           value={this.props.inputValorMin}
-          onChange={this.props.handleInputChangeMin}
+          onChange={this.props.onChangeInputMin}
         />
         <p>Valor máximo</p>
         <input
           type="number"
           value={this.props.inputValorMax}
-          onChange={this.props.handleInputChangeMax}
+          onChange={this.props.onChangeInputMax}
         />
         <p>Buscar por nome</p>
         <input
           type="text"
           value={this.props.inputBuscaNome}
-          onChange={this.props.handleInputChangeBuscaNome}
+          onChange={this.props.onChangeInputBuscaNome}
         />
       </ContainerFiltros>
     );
