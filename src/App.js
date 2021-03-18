@@ -83,7 +83,7 @@ export default class App extends React.Component {
     this.setState({ carrinho: userProdutos });
   };
 
-/*   adicionarProduto = (id) => {
+  /*   adicionarProduto = (id) => {
     const pegarProduto = this.state.produtos.forEach((produto) => {
       if (id === produto.id && produto.quantidade === 0) {
         produto.quantidade = 1;
@@ -148,6 +148,7 @@ export default class App extends React.Component {
             inputValorMin={this.state.inputValorMin}
             inputValorMax={this.state.inputValorMax}
             inputBuscaNome={this.state.inputBuscaNome}
+            key={this.state.produtos.id}
           />
         </ContainerPai>
         <div>
