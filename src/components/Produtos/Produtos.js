@@ -7,6 +7,17 @@ const ContainerProdutos = styled.div`
   flex-wrap: wrap;
 `;
 
+const ContainerPai = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  width: 50vw;
+`;
+const ContainerHeader = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
 export class Produtos extends React.Component {
   FiltrarLista = () => {
     return this.props.produtos
@@ -16,6 +27,8 @@ export class Produtos extends React.Component {
           this.props.inputValorMin <= produto.precoProduto
         ) {
           return true;
+        } else {
+          return false;
         }
       })
       .filter((produto) => {
@@ -24,11 +37,22 @@ export class Produtos extends React.Component {
           this.props.inputValorMax >= produto.precoProduto
         ) {
           return true;
+        } else {
+          return false;
         }
       })
       .filter((produto) => {
         if (produto.nomeProduto.includes(this.props.inputBuscaNome)) {
           return true;
+        } else {
+          return false;
+        }
+      })
+      .sort((a, b) => {
+        if (this.props.sort === "CRESCENTE") {
+          return a.precoProduto - b.precoProduto;
+        } else {
+          return b.precoProduto - a.precoProduto;
         }
       });
   };
@@ -36,17 +60,30 @@ export class Produtos extends React.Component {
   render() {
     let listaFiltrada = this.FiltrarLista();
     return (
-      <ContainerProdutos>
-        {listaFiltrada.map((produto) => {
-          return (
-            <CardProdutos
-              nomeProduto={produto.nomeProduto}
-              fotoProduto={produto.fotoProduto}
-              precoProduto={produto.precoProduto}
-            />
-          );
-        })}
-      </ContainerProdutos>
+      <ContainerPai>
+        <ContainerHeader>
+          <p>Quantidade de produtos: {listaFiltrada.length}</p>
+          <p>
+            Ordenação:
+            <select value={this.props.sort} onChange={this.props.onChangeSort}>
+              <option value={"CRESCENTE"}>Crescente</option>
+              <option value={"DECRESCENTE"}>Decrescente</option>
+            </select>
+          </p>
+        </ContainerHeader>
+        <ContainerProdutos>
+          {listaFiltrada.map((produto) => {
+            return (
+              <CardProdutos
+                nomeProduto={produto.nomeProduto}
+                fotoProduto={produto.fotoProduto}
+                precoProduto={produto.precoProduto}
+                key={produto.id}
+              />
+            );
+          })}
+        </ContainerProdutos>
+      </ContainerPai>
     );
   }
 }
