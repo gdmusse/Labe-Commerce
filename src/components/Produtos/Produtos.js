@@ -19,10 +19,6 @@ const ContainerHeader = styled.div`
   justify-content: space-between;
 `;
 export class Produtos extends React.Component {
-  state = {
-    sort: "DECRESCENTE",
-  };
-
   FiltrarLista = () => {
     return this.props.produtos
       .filter((produto) => {
@@ -31,6 +27,8 @@ export class Produtos extends React.Component {
           this.props.inputValorMin <= produto.precoProduto
         ) {
           return true;
+        } else {
+          return false;
         }
       })
       .filter((produto) => {
@@ -39,24 +37,24 @@ export class Produtos extends React.Component {
           this.props.inputValorMax >= produto.precoProduto
         ) {
           return true;
+        } else {
+          return false;
         }
       })
       .filter((produto) => {
         if (produto.nomeProduto.includes(this.props.inputBuscaNome)) {
           return true;
+        } else {
+          return false;
         }
       })
       .sort((a, b) => {
-        if (this.state.sort === "CRESCENTE") {
-         return (a.precoProduto - b.precoProduto);
+        if (this.props.sort === "CRESCENTE") {
+          return a.precoProduto - b.precoProduto;
         } else {
-         return (b.precoProduto - a.precoProduto);
+          return b.precoProduto - a.precoProduto;
         }
       });
-  };
-  
-  onChangeSort = (event) => {
-    this.setState({ sort: event.target.value });
   };
 
   render() {
@@ -67,7 +65,7 @@ export class Produtos extends React.Component {
           <p>Quantidade de produtos: {listaFiltrada.length}</p>
           <p>
             Ordenação:
-            <select value={this.state.sort} onChange={this.onChangeSort}>
+            <select value={this.props.sort} onChange={this.props.onChangeSort}>
               <option value={"CRESCENTE"}>Crescente</option>
               <option value={"DECRESCENTE"}>Decrescente</option>
             </select>
@@ -80,6 +78,7 @@ export class Produtos extends React.Component {
                 nomeProduto={produto.nomeProduto}
                 fotoProduto={produto.fotoProduto}
                 precoProduto={produto.precoProduto}
+                key={produto.id}
               />
             );
           })}

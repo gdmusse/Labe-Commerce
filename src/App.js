@@ -70,9 +70,10 @@ export default class App extends React.Component {
     inputValorMin: "",
     inputValorMax: "",
     inputBuscaNome: "",
+    sort: "DECRESCENTE",
   };
 
-  AdicionarProduto = (id) => {
+/*   AdicionarProduto = (id) => {
     const filtrarProduto = this.state.produtos.map((item) => {
       if (item.id === id) {
         return true;
@@ -82,7 +83,7 @@ export default class App extends React.Component {
 
     this.setState({ carrinho: userProdutos });
   };
-
+ */
   /*   adicionarProduto = (id) => {
     const pegarProduto = this.state.produtos.forEach((produto) => {
       if (id === produto.id && produto.quantidade === 0) {
@@ -129,6 +130,10 @@ export default class App extends React.Component {
     this.setState({ inputBuscaNome: event.target.value });
   };
 
+  onChangeSort = (event) => {
+    this.setState({ sort: event.target.value });
+  };
+
   render() {
     return (
       <Commerce>
@@ -148,8 +153,10 @@ export default class App extends React.Component {
             inputValorMin={this.state.inputValorMin}
             inputValorMax={this.state.inputValorMax}
             inputBuscaNome={this.state.inputBuscaNome}
-            key={this.state.produtos.id}
+            sort={this.state.sort}
+            onChangeSort={this.onChangeSort}
           />
+        
         </ContainerPai>
         <div>
           <Carrinho />
