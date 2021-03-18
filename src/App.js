@@ -73,18 +73,17 @@ export default class App extends React.Component {
     sort: "DECRESCENTE",
   };
 
-/*   AdicionarProduto = (id) => {
+  /*  AdicionarProduto = (id) => {
     const filtrarProduto = this.state.produtos.map((item) => {
       if (item.id === id) {
         return true;
       }
     });
     const userProdutos = [filtrarProduto, ...this.state.carrinho];
-
     this.setState({ carrinho: userProdutos });
   };
- */
-  /*   adicionarProduto = (id) => {
+ 
+  adicionarProduto = (id) => {
     const pegarProduto = this.state.produtos.forEach((produto) => {
       if (id === produto.id && produto.quantidade === 0) {
         produto.quantidade = 1;
@@ -155,8 +154,8 @@ export default class App extends React.Component {
             inputBuscaNome={this.state.inputBuscaNome}
             sort={this.state.sort}
             onChangeSort={this.onChangeSort}
+            adicionarCarrinho={this.adicionarCarrinho}
           />
-        
         </ContainerPai>
         <div>
           <Carrinho />
