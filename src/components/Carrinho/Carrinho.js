@@ -33,12 +33,15 @@ render(){
                 <div> Quantidade </div> 
                 <div> Produto </div>
                 <div>Excluir</div>
-                <div>{this.props.quantidade} </div> <div>{this.props.nomeProduto}</div> <button>X</button>
+                <div>{this.props.quantidade} </div> 
+                <div>{this.props.nomeProduto}</div> 
+                <div>{this.props.precoProduto}</div> 
+                <button>X</button>
                
             </TitleDiv>
             <ValorCompra>
-                <div>Valor:</div>
-                <div>00,00</div>
+                <div>Valor Total: R$ {this.props.valorTotalCompras} </div>
+                
             </ValorCompra>
 
 

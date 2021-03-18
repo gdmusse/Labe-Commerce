@@ -79,6 +79,7 @@ export class Produtos extends React.Component {
                 fotoProduto={produto.fotoProduto}
                 precoProduto={produto.precoProduto}
                 key={produto.id}
+                adicionarCarrinho={this.props.adicionarCarrinho}
               />
             );
           })}
