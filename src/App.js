@@ -31,10 +31,12 @@ const Header = styled.div`
   padding: 0;
 `;
 
-const ContainerPai = styled.div`
+const ContainerProdutos = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 50vw;
+  align-items: center;
+  justify-content: center;
 `;
 
 const MeuCarrinho = styled.div`
@@ -67,38 +69,38 @@ const DivBodyEsquerda = styled.div`
 const listaDeProdutos = [
   {
     id: 1,
-    nomeProduto: "Produto 1",
-    fotoProduto: "https://picsum.photos/200/150?random=1",
+    nomeProduto: "Conjunto Laranja",
+    fotoProduto: "https://img.r7.com/images/astronauta-16102019104753764",
     precoProduto: 50,
   },
   {
     id: 2,
-    nomeProduto: "Produto 2",
-    fotoProduto: "https://picsum.photos/200/150?random=2",
+    nomeProduto: "Conjunto Branco",
+    fotoProduto: "https://super.abril.com.br/wp-content/uploads/2018/07/astronauta_abre.jpg?quality=70&strip=info&w=1000",
     precoProduto: 150,
   },
   {
     id: 3,
-    nomeProduto: "Produto 3",
-    fotoProduto: "https://picsum.photos/200/150?random=3",
+    nomeProduto: "Conjunto Azul",
+    fotoProduto: "https://exame.com/wp-content/uploads/2017/01/roupa-espacial-da-bpeing.jpg?quality=70&strip=all",
     precoProduto: 250,
   },
   {
     id: 4,
-    nomeProduto: "Produto 4",
-    fotoProduto: "https://picsum.photos/200/150?random=4",
+    nomeProduto: "Buzz Lightyear",
+    fotoProduto: "https://www.inovacaotecnologica.com.br/noticias/imagens/020130130108-roupa-espacial-z-1-nasa-1.jpg",
     precoProduto: 30,
   },
   {
     id: 5,
-    nomeProduto: "Produto 5",
-    fotoProduto: "https://picsum.photos/200/150?random=5",
+    nomeProduto: "Old School",
+    fotoProduto: "https://mega.ibxk.com.br/2015/03/13/13151037387801.jpg?ims=610x",
     precoProduto: 80,
   },
   {
     id: 6,
-    nomeProduto: "Produto 6",
-    fotoProduto: "https://picsum.photos/200/150?random=6",
+    nomeProduto: "Tron",
+    fotoProduto: "https://imagenes.20minutos.com/files/image_990_v1/uploads/imagenes/2019/06/17/18733.jpg",
     precoProduto: 500,
   },
 ];
@@ -185,7 +187,7 @@ export default class App extends React.Component {
               />
             </MeuCarrinho>
           </DivBodyEsquerda>
-          <ContainerPai>
+          <ContainerProdutos>
             <Produtos
               produtos={this.state.produtos}
               inputValorMin={this.state.inputValorMin}
@@ -195,7 +197,7 @@ export default class App extends React.Component {
               onChangeSort={this.onChangeSort}
               adicionarProduto={this.adicionarProduto}
             />
-          </ContainerPai>
+          </ContainerProdutos>
         </DivBody>
       </Commerce>
     );

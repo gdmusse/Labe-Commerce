@@ -5,6 +5,8 @@ import { CardProdutos } from "./CardProdutos";
 const ContainerProdutos = styled.div`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 `;
 
 const ContainerPai = styled.div`
