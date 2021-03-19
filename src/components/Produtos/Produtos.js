@@ -5,8 +5,7 @@ import { CardProdutos } from "./CardProdutos";
 const ContainerProdutos = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 `;
 
 const ContainerPai = styled.div`
@@ -15,6 +14,7 @@ const ContainerPai = styled.div`
 `;
 const ContainerHeader = styled.div`
   width: 100%;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   background-color: #4e2278;

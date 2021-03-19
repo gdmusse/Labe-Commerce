@@ -14,7 +14,7 @@ const Commerce = styled.div`
   background-repeat: repeat;
   background-size: cover;
   background-position: 50% 50%;
-  overflow-x: scroll;
+  overflow-x: hidden;
 `;
 
 const Header = styled.div`
@@ -35,7 +35,8 @@ const ContainerProdutos = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 50vw;
-  justify-content: center;
+  justify-content: flex-start;
+  align-content: flex-start;
 `;
 
 const MeuCarrinho = styled.div`

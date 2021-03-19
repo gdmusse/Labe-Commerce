@@ -8,7 +8,7 @@ const CardCarrinho = styled.div`
   color: white;
   padding: 5px;
   width: 100%;
-  height: 100%;
+  min-height: 577px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -34,8 +34,11 @@ const CarrinhoButton = styled.div`
   background-color: white;
   border-radius: 10px;
   transition: background-color 400ms;
-  padding: 5px;
+  padding: 3px;
   color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &:hover {
     background-color: gray;
     cursor: pointer;
