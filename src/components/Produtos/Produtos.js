@@ -10,14 +10,33 @@ const ContainerProdutos = styled.div`
 const ContainerPai = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-top: 60px;
-  width: 50vw;
 `;
 const ContainerHeader = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  background-color:#4e2278;
+  text-align: center;
+  align-items: center;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  color: white;
+  padding: 15px;
 `;
+
+const DivHeader = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+`;
+
+const CategoriaProdutos = styled.div`
+font-weight: bold;
+font-size: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
+`
 export class Produtos extends React.Component {
   FiltrarLista = () => {
     return this.props.produtos
@@ -62,14 +81,15 @@ export class Produtos extends React.Component {
     return (
       <ContainerPai>
         <ContainerHeader>
-          <p>Quantidade de produtos: {listaFiltrada.length}</p>
-          <p>
+          <DivHeader>Quantidade de produtos: {listaFiltrada.length}</DivHeader>
+          <CategoriaProdutos> Roupas espaciais </CategoriaProdutos>
+          <DivHeader>
             Ordenação:
             <select value={this.props.sort} onChange={this.props.onChangeSort}>
               <option value={"CRESCENTE"}>Crescente</option>
               <option value={"DECRESCENTE"}>Decrescente</option>
             </select>
-          </p>
+          </DivHeader>
         </ContainerHeader>
         <ContainerProdutos>
           {listaFiltrada.map((produto) => {
