@@ -3,23 +3,32 @@ import styled from "styled-components";
 
 const CardCarrinho = styled.div`
   border: 2px solid black;
-  width: 250px;
+  width: 350px;
   height: 800px;
   margin: 55px 0;
+  padding: 5px;
 `;
 const TitleDiv = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 `;
 
 const ValorCompra = styled.div`
-  display: flex;
   margin-top: 60px;
+  text-align: center;
 `;
 
 const TituloCarrinho = styled.h1`
   text-align: center;
 `;
+const Title = styled.div`
+  text-align: center;
+  font-weight: bold;
+`;
+const Conteudo = styled.div`
+  text-align: center;
+`;
+
 export default class Carrinho extends React.Component {
   listaCarrinho = () => {
     return (
@@ -28,24 +37,35 @@ export default class Carrinho extends React.Component {
         console.log(produto);
         return (
           <TitleDiv>
-            <div> Quantidade </div>
-            <div> Produto </div>
-            <div>Excluir</div>
-            <div>{produto.quantidade}</div> <div>{produto.nomeProduto}</div>{" "}
-            <button>Remover</button>
+            <Title> Quantidade </Title>
+            <Title> Valor </Title>
+            <Title> Produto </Title>
+            <Title></Title>
+            <Conteudo>{produto.quantidade}</Conteudo>
+            <Conteudo>R$ {produto.precoProduto * produto.quantidade}</Conteudo>
+            <Conteudo>{produto.nomeProduto}</Conteudo>
+            <button onClick={() => this.props.removerProduto(produto)}>
+              Remover
+            </button>
           </TitleDiv>
         );
       })
     );
   };
+
+  totalCarrinho = () => {
+    return this.props.carrinho.reduce((total, produto) => {
+      return produto.precoProduto * produto.quantidade + total;
+    }, 0);
+  };
+
   render() {
     return (
       <CardCarrinho>
         <TituloCarrinho>Carrinho</TituloCarrinho>
         {this.listaCarrinho()}
         <ValorCompra>
-          <div>Valor Total: </div>
-          <div>00,00</div>
+          <h3>Valor Total R$: {this.totalCarrinho()}</h3>
         </ValorCompra>
       </CardCarrinho>
     );

@@ -81,6 +81,22 @@ export default class App extends React.Component {
     this.setState({ carrinho: novoCarrinho });
   };
 
+  removerProduto = (produto) => {
+    const indiceProduto = this.state.carrinho.findIndex((item) => {
+      return item.id === produto.id;
+    });
+
+    const novoCarrinho = [...this.state.carrinho];
+
+    if (this.state.carrinho[indiceProduto].quantidade === 1) {
+      novoCarrinho.splice(indiceProduto, 1);
+    } else {
+      novoCarrinho[indiceProduto].quantidade--;
+    }
+
+    this.setState({ carrinho: novoCarrinho });
+  };
+
   onChangeInputMin = (event) => {
     this.setState({ inputValorMin: event.target.value });
   };
@@ -122,7 +138,10 @@ export default class App extends React.Component {
           />
         </ContainerPai>
         <div>
-          <Carrinho carrinho={this.state.carrinho} />
+          <Carrinho 
+          carrinho={this.state.carrinho}
+          removerProduto={this.removerProduto}
+          />
         </div>
       </Commerce>
     );
