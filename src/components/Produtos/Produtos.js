@@ -17,7 +17,7 @@ const ContainerHeader = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color:#4e2278;
+  background-color: #4e2278;
   text-align: center;
   align-items: center;
   padding-bottom: 10px;
@@ -26,18 +26,18 @@ const ContainerHeader = styled.div`
 `;
 
 const DivHeader = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const CategoriaProdutos = styled.div`
-font-weight: bold;
-font-size: 40px;
-display: flex;
-justify-content: center;
-align-items: center;
-`
+  font-weight: bold;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 export class Produtos extends React.Component {
   FiltrarLista = () => {
     return this.props.produtos
@@ -100,7 +100,7 @@ export class Produtos extends React.Component {
                 fotoProduto={produto.fotoProduto}
                 precoProduto={produto.precoProduto}
                 key={produto.id}
-                produto = {produto}
+                produto={produto}
                 adicionarProduto={this.props.adicionarProduto}
               />
             );
