@@ -9,13 +9,21 @@ const Commerce = styled.div`
   max-width: 100vw;
   max-height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 3fr 6fr 3fr;
+  justify-content: center;
 `;
 
 const ContainerPai = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 50vw;
+`;
+
+const DivContainerFiltros = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 `;
 
 const listaDeProdutos = [
@@ -100,7 +108,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Commerce>
-        <div>
+        <DivContainerFiltros>
           <Filtros
             inputValorMin={this.state.inputValorMin}
             inputValorMax={this.state.inputValorMax}
@@ -109,7 +117,7 @@ export default class App extends React.Component {
             onChangeInputMax={this.onChangeInputMax}
             onChangeInputBuscaNome={this.onChangeInputBuscaNome}
           />
-        </div>
+        </DivContainerFiltros>
         <ContainerPai>
           <Produtos
             produtos={this.state.produtos}
