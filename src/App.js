@@ -2,15 +2,32 @@ import React from "react";
 import { Produtos } from "./components/Produtos/Produtos";
 import Carrinho from "./components/Carrinho/Carrinho";
 import Filtros from "./components/Filtros/Filtros";
+
+import Robo from "./images/robo.png";
 import "./App.css";
 import styled from "styled-components";
 
 const Commerce = styled.div`
   max-width: 100vw;
   max-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  display:grid;
+  grid-template-rows:1fr 3fr 6fr 3fr;
+  justify-content:center;
+  
 `;
+const Header = styled.div`
+margin-top: 30px;
+background-color: purple;
+border-radius: 20px;
+color:white;
+display: flex;
+justify-content: center;
+align-items: center;
+
+
+
+`;
+
 
 const ContainerPai = styled.div`
   display: flex;
@@ -116,6 +133,10 @@ export default class App extends React.Component {
   render() {
     return (
       <Commerce>
+        <Header>
+          <h1>Minha lojinha Espacial!</h1>
+          <img src={Robo}/>
+        </Header>
         <div>
           <Filtros
             inputValorMin={this.state.inputValorMin}
