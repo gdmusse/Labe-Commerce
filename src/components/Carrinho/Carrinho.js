@@ -6,17 +6,9 @@ const CardCarrinho = styled.div`
   border-top: 1px solid black;
   background-color: #8d3dd9;
   color:white;
-  padding: 15px;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  flex-grow: 1;
+
 `;
 
 const CarrinhoTitulo = styled.div `
@@ -42,7 +34,7 @@ const TituloCarrinho = styled.h1`
   margin: 0;
 `;
 const Title = styled.div`
-  text-align: center;
+  padding-right:10px;
   font-weight: bold;
 `;
 const Conteudo = styled.div`

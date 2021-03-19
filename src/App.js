@@ -41,11 +41,8 @@ const ContainerProdutos = styled.div`
 
 const MeuCarrinho = styled.div`
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 50%;
-  flex-grow: 1;
+  
 `;
 const DivContainerFiltros = styled.div`
   display: flex;
@@ -180,12 +177,7 @@ export default class App extends React.Component {
                 onChangeInputBuscaNome={this.onChangeInputBuscaNome}
               />
             </DivContainerFiltros>
-            <MeuCarrinho>
-              <Carrinho
-                carrinho={this.state.carrinho}
-                removerProduto={this.removerProduto}
-              />
-            </MeuCarrinho>
+
           </DivBodyEsquerda>
           <ContainerProdutos>
             <Produtos
@@ -198,6 +190,12 @@ export default class App extends React.Component {
               adicionarProduto={this.adicionarProduto}
             />
           </ContainerProdutos>
+          <MeuCarrinho>
+              <Carrinho
+                carrinho={this.state.carrinho}
+                removerProduto={this.removerProduto}
+              />
+            </MeuCarrinho>
         </DivBody>
       </Commerce>
     );
