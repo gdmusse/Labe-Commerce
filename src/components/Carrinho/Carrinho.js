@@ -1,51 +1,45 @@
 import React from "react";
 import styled from "styled-components";
-import CarrinhoCompras from "../../images/cart.svg"
+import CarrinhoCompras from "../../images/cart.svg";
 
 const CardCarrinho = styled.div`
   border-top: 1px solid black;
   background-color: #8d3dd9;
-  color:white;
-  padding: 15px;
+  color: white;
+  padding: 5px;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  flex-grow: 1;
 `;
 
-const CarrinhoTitulo = styled.div `
-display:flex;
-justify-content: center;
-align-items: center;
-
+const CarrinhoTitulo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const TitleDiv = styled.div`
-  margin:20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 20px;
+  display: flex;
 `;
-const CarrinhoButton = styled.div `
-margin-left: 10px;
-width:70px;
-height:30px;
-background-color:white;
-border-radius:10px;
-transition: background-color 800ms;
-padding:5px;
-color:black;
-&:hover{
-  background-color:gray;
-  cursor: pointer;
-}
-
-
+const CarrinhoButton = styled.div`
+  margin-left: 10px;
+  width: 70px;
+  height: 30px;
+  background-color: white;
+  border-radius: 10px;
+  transition: background-color 400ms;
+  padding: 5px;
+  color: black;
+  &:hover {
+    background-color: gray;
+    cursor: pointer;
+  }
 `;
 
 const ValorCompra = styled.div`
@@ -59,7 +53,18 @@ const TituloCarrinho = styled.h1`
 `;
 
 const Conteudo = styled.div`
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  margin-right: 5px;
+`;
+
+const ConteudoNome = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 2;
 `;
 
 export default class Carrinho extends React.Component {
@@ -70,9 +75,9 @@ export default class Carrinho extends React.Component {
         console.log(produto);
         return (
           <TitleDiv>
-            <Conteudo>{produto.quantidade} x</Conteudo>
+            <Conteudo>{produto.quantidade}x</Conteudo>
             <Conteudo>R$ {produto.precoProduto * produto.quantidade}</Conteudo>
-            <Conteudo>{produto.nomeProduto}</Conteudo>
+            <ConteudoNome>{produto.nomeProduto}</ConteudoNome>
             <CarrinhoButton onClick={() => this.props.removerProduto(produto)}>
               Remover
             </CarrinhoButton>
@@ -92,8 +97,8 @@ export default class Carrinho extends React.Component {
     return (
       <CardCarrinho>
         <CarrinhoTitulo>
-        <TituloCarrinho>Carrinho</TituloCarrinho>
-        <img src={CarrinhoCompras}height="43" />
+          <TituloCarrinho>Carrinho</TituloCarrinho>
+          <img src={CarrinhoCompras} height="43" />
         </CarrinhoTitulo>
         {this.listaCarrinho()}
         <ValorCompra>

@@ -7,11 +7,9 @@ const ContainerFiltros = styled.div`
   background-color: #8d3dd9;
   text-align: center;
   align-items: center;
-  justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 250px;
   color: white;
-  margin-bottom: 20px;
 `;
 
 const InputFiltros = styled.input`

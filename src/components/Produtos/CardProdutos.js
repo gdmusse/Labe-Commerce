@@ -14,14 +14,14 @@ const ContainerCardProduto = styled.div`
   color: white;
 `;
 const TituloProduto = styled.div`
-margin: 0;
-font-size: 20px;
-font-weight: bold;
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
 `;
 
 const FotoProduto = styled.img`
-height: 150px;
-width: 200px;
+  height: 150px;
+  width: 200px;
 `;
 export class CardProdutos extends React.Component {
   render() {
@@ -30,7 +30,7 @@ export class CardProdutos extends React.Component {
         <FotoProduto src={this.props.fotoProduto} alt={"Imagem do produto"} />
         <TituloProduto>{this.props.nomeProduto}</TituloProduto>
         <p>R${this.props.precoProduto}</p>
-        <button onClick={()=> this.props.adicionarProduto(this.props.produto)}>
+        <button onClick={() => this.props.adicionarProduto(this.props.produto)}>
           Adicionar ao carrinho
         </button>
       </ContainerCardProduto>
