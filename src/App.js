@@ -24,12 +24,15 @@ justify-content: center;
 align-items: center;
 `;
 
-
 const ContainerPai = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 50vw;
 `;
+
+const MeuCarrinho = styled.div`
+display:flex;
+justify-content:center;
 
 const DivContainerFiltros = styled.div`
   display: flex;
@@ -161,12 +164,12 @@ export default class App extends React.Component {
             adicionarProduto={this.adicionarProduto}
           />
         </ContainerPai>
-        <div>
+        <MeuCarrinho>
           <Carrinho 
           carrinho={this.state.carrinho}
           removerProduto={this.removerProduto}
           />
-        </div>
+        </MeuCarrinho>
       </Commerce>
     );
   }

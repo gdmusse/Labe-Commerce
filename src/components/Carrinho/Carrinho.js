@@ -1,14 +1,24 @@
 import React from "react";
 import styled from "styled-components";
+import CarrinhoCompras from "../../images/cart.svg"
 
 const CardCarrinho = styled.div`
-  border: 2px solid black;
-  width: 350px;
-  height: 800px;
-  margin: 55px 0;
-  padding: 5px;
+  border-radius: 20px;
+  background-color:purple;
+  color:white;
+  width:500px;
+  padding: 15px;
 `;
+
+const CarrinhoTitulo = styled.div `
+display:flex;
+justify-content: center;
+padding:10px;
+
+`;
+
 const TitleDiv = styled.div`
+  margin:20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 `;
@@ -62,7 +72,10 @@ export default class Carrinho extends React.Component {
   render() {
     return (
       <CardCarrinho>
+        <CarrinhoTitulo>
         <TituloCarrinho>Carrinho</TituloCarrinho>
+        <img src={CarrinhoCompras}/>
+        </CarrinhoTitulo>
         {this.listaCarrinho()}
         <ValorCompra>
           <h3>Valor Total R$: {this.totalCarrinho()}</h3>
