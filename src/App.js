@@ -10,10 +10,9 @@ import styled from "styled-components";
 const Commerce = styled.div`
   max-width: 100vw;
   max-height: 100vh;
-  display:grid;
-  grid-template-rows:1fr 3fr 6fr 3fr;
-  justify-content:center;
-  
+  display: grid;
+  grid-template-rows: 1fr 3fr 6fr 3fr;
+  justify-content: center;
 `;
 const Header = styled.div`
 margin-top: 30px;
@@ -23,9 +22,6 @@ color:white;
 display: flex;
 justify-content: center;
 align-items: center;
-
-
-
 `;
 
 
@@ -33,6 +29,13 @@ const ContainerPai = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 50vw;
+`;
+
+const DivContainerFiltros = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 `;
 
 const listaDeProdutos = [
@@ -137,7 +140,7 @@ export default class App extends React.Component {
           <h1>Minha lojinha Espacial!</h1>
           <img src={Robo}/>
         </Header>
-        <div>
+        <DivContainerFiltros>
           <Filtros
             inputValorMin={this.state.inputValorMin}
             inputValorMax={this.state.inputValorMax}
@@ -146,7 +149,7 @@ export default class App extends React.Component {
             onChangeInputMax={this.onChangeInputMax}
             onChangeInputBuscaNome={this.onChangeInputBuscaNome}
           />
-        </div>
+        </DivContainerFiltros>
         <ContainerPai>
           <Produtos
             produtos={this.state.produtos}
