@@ -31,6 +31,22 @@ const TitleDiv = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 `;
+const CarrinhoButton = styled.div `
+margin-left: 10px;
+width:70px;
+height:30px;
+background-color:white;
+border-radius:10px;
+transition: background-color 800ms;
+padding:5px;
+color:black;
+&:hover{
+  background-color:gray;
+  cursor: pointer;
+}
+
+
+`;
 
 const ValorCompra = styled.div`
   margin-top: 60px;
@@ -41,10 +57,7 @@ const TituloCarrinho = styled.h1`
   text-align: center;
   margin: 0;
 `;
-const Title = styled.div`
-  text-align: center;
-  font-weight: bold;
-`;
+
 const Conteudo = styled.div`
   text-align: center;
 `;
@@ -57,16 +70,12 @@ export default class Carrinho extends React.Component {
         console.log(produto);
         return (
           <TitleDiv>
-            <Title> Quantidade </Title>
-            <Title> Valor </Title>
-            <Title> Produto </Title>
-            <Title></Title>
-            <Conteudo>{produto.quantidade}</Conteudo>
+            <Conteudo>{produto.quantidade} x</Conteudo>
             <Conteudo>R$ {produto.precoProduto * produto.quantidade}</Conteudo>
             <Conteudo>{produto.nomeProduto}</Conteudo>
-            <button onClick={() => this.props.removerProduto(produto)}>
+            <CarrinhoButton onClick={() => this.props.removerProduto(produto)}>
               Remover
-            </button>
+            </CarrinhoButton>
           </TitleDiv>
         );
       })
