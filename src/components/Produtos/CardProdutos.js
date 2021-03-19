@@ -18,7 +18,7 @@ export class CardProdutos extends React.Component {
         <img src={this.props.fotoProduto} alt={"Imagem do produto"} />
         <h3>{this.props.nomeProduto}</h3>
         <p>R${this.props.precoProduto}</p>
-        <button onClick={() => this.props.adicionarCarrinho(this.props.id)}>
+        <button onClick={()=> this.props.adicionarProduto(this.props.produto)}>
           Adicionar ao carrinho
         </button>
       </ContainerCardProduto>
