@@ -8,20 +8,27 @@ import "./App.css";
 import styled from "styled-components";
 
 const Commerce = styled.div`
-  max-width: 100vw;
-  max-height: 100vh;
-  display: grid;
-  grid-template-rows: 1fr 3fr 6fr 3fr;
-  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://i.imgur.com/F9KDSc6.jpg");
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  overflow-x: scroll;
 `;
+
 const Header = styled.div`
-margin-top: 30px;
-background-color: purple;
-border-radius: 20px;
-color:white;
-display: flex;
-justify-content: center;
-align-items: center;
+  background-color: purple;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 99vw;
+  text-transform: uppercase;
+  text-shadow: 2px 2px black;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 `;
 
 const ContainerPai = styled.div`
@@ -31,14 +38,30 @@ const ContainerPai = styled.div`
 `;
 
 const MeuCarrinho = styled.div`
-display:flex;
-justify-content:center;
-
-const DivContainerFiltros = styled.div`
   display: flex;
-  width: 100%;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 50%;
+  flex-grow: 1;
+`;
+const DivContainerFiltros = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`;
+
+const DivBody = styled.div`
+  display: flex;
+  justify-content: center;
+  align-self: center;
+`;
+const DivBodyEsquerda = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  overflow: hidden;
 `;
 
 const listaDeProdutos = [
@@ -141,35 +164,39 @@ export default class App extends React.Component {
       <Commerce>
         <Header>
           <h1>Minha lojinha Espacial!</h1>
-          <img src={Robo}/>
+          <img src={Robo} width="150" height="100" />
         </Header>
-        <DivContainerFiltros>
-          <Filtros
-            inputValorMin={this.state.inputValorMin}
-            inputValorMax={this.state.inputValorMax}
-            inputBuscaNome={this.state.inputBuscaNome}
-            onChangeInputMin={this.onChangeInputMin}
-            onChangeInputMax={this.onChangeInputMax}
-            onChangeInputBuscaNome={this.onChangeInputBuscaNome}
-          />
-        </DivContainerFiltros>
-        <ContainerPai>
-          <Produtos
-            produtos={this.state.produtos}
-            inputValorMin={this.state.inputValorMin}
-            inputValorMax={this.state.inputValorMax}
-            inputBuscaNome={this.state.inputBuscaNome}
-            sort={this.state.sort}
-            onChangeSort={this.onChangeSort}
-            adicionarProduto={this.adicionarProduto}
-          />
-        </ContainerPai>
-        <MeuCarrinho>
-          <Carrinho 
-          carrinho={this.state.carrinho}
-          removerProduto={this.removerProduto}
-          />
-        </MeuCarrinho>
+        <DivBody>
+          <DivBodyEsquerda>
+            <DivContainerFiltros>
+              <Filtros
+                inputValorMin={this.state.inputValorMin}
+                inputValorMax={this.state.inputValorMax}
+                inputBuscaNome={this.state.inputBuscaNome}
+                onChangeInputMin={this.onChangeInputMin}
+                onChangeInputMax={this.onChangeInputMax}
+                onChangeInputBuscaNome={this.onChangeInputBuscaNome}
+              />
+            </DivContainerFiltros>
+            <MeuCarrinho>
+              <Carrinho
+                carrinho={this.state.carrinho}
+                removerProduto={this.removerProduto}
+              />
+            </MeuCarrinho>
+          </DivBodyEsquerda>
+          <ContainerPai>
+            <Produtos
+              produtos={this.state.produtos}
+              inputValorMin={this.state.inputValorMin}
+              inputValorMax={this.state.inputValorMax}
+              inputBuscaNome={this.state.inputBuscaNome}
+              sort={this.state.sort}
+              onChangeSort={this.onChangeSort}
+              adicionarProduto={this.adicionarProduto}
+            />
+          </ContainerPai>
+        </DivBody>
       </Commerce>
     );
   }

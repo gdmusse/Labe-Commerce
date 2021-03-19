@@ -19,7 +19,6 @@ const ContainerHeader = styled.div`
   text-align: center;
   align-items: center;
   padding-bottom: 10px;
-  border-radius: 10px;
   color: white;
   padding: 15px;
 `;
