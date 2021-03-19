@@ -2,6 +2,8 @@ import React from "react";
 import { Produtos } from "./components/Produtos/Produtos";
 import Carrinho from "./components/Carrinho/Carrinho";
 import Filtros from "./components/Filtros/Filtros";
+
+import Robo from "./images/robo.png";
 import "./App.css";
 import styled from "styled-components";
 
@@ -12,6 +14,16 @@ const Commerce = styled.div`
   grid-template-rows: 1fr 3fr 6fr 3fr;
   justify-content: center;
 `;
+const Header = styled.div`
+margin-top: 30px;
+background-color: purple;
+border-radius: 20px;
+color:white;
+display: flex;
+justify-content: center;
+align-items: center;
+`;
+
 
 const ContainerPai = styled.div`
   display: flex;
@@ -89,6 +101,22 @@ export default class App extends React.Component {
     this.setState({ carrinho: novoCarrinho });
   };
 
+  removerProduto = (produto) => {
+    const indiceProduto = this.state.carrinho.findIndex((item) => {
+      return item.id === produto.id;
+    });
+
+    const novoCarrinho = [...this.state.carrinho];
+
+    if (this.state.carrinho[indiceProduto].quantidade === 1) {
+      novoCarrinho.splice(indiceProduto, 1);
+    } else {
+      novoCarrinho[indiceProduto].quantidade--;
+    }
+
+    this.setState({ carrinho: novoCarrinho });
+  };
+
   onChangeInputMin = (event) => {
     this.setState({ inputValorMin: event.target.value });
   };
@@ -108,6 +136,10 @@ export default class App extends React.Component {
   render() {
     return (
       <Commerce>
+        <Header>
+          <h1>Minha lojinha Espacial!</h1>
+          <img src={Robo}/>
+        </Header>
         <DivContainerFiltros>
           <Filtros
             inputValorMin={this.state.inputValorMin}
@@ -130,7 +162,10 @@ export default class App extends React.Component {
           />
         </ContainerPai>
         <div>
-          <Carrinho carrinho={this.state.carrinho} />
+          <Carrinho 
+          carrinho={this.state.carrinho}
+          removerProduto={this.removerProduto}
+          />
         </div>
       </Commerce>
     );
