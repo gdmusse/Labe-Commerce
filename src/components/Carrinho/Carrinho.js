@@ -3,17 +3,26 @@ import styled from "styled-components";
 import CarrinhoCompras from "../../images/cart.svg"
 
 const CardCarrinho = styled.div`
-  border-radius: 20px;
-  background-color:purple;
+  border-top: 1px solid black;
+  background-color: #8d3dd9;
   color:white;
-  width:500px;
   padding: 15px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
 `;
 
 const CarrinhoTitulo = styled.div `
 display:flex;
 justify-content: center;
-padding:10px;
+align-items: center;
 
 `;
 
@@ -30,6 +39,7 @@ const ValorCompra = styled.div`
 
 const TituloCarrinho = styled.h1`
   text-align: center;
+  margin: 0;
 `;
 const Title = styled.div`
   text-align: center;
@@ -74,7 +84,7 @@ export default class Carrinho extends React.Component {
       <CardCarrinho>
         <CarrinhoTitulo>
         <TituloCarrinho>Carrinho</TituloCarrinho>
-        <img src={CarrinhoCompras}/>
+        <img src={CarrinhoCompras}height="43" />
         </CarrinhoTitulo>
         {this.listaCarrinho()}
         <ValorCompra>
