@@ -1,4 +1,4 @@
-# 👨‍💻 Lab E-Commerce - Grupo 12 👩‍💻
+<p align="center"> # 👨‍💻 Lab E-Commerce 👩‍💻</p>
 
 <p align="center">http://purring-touch.surge.sh/</p>
 
