@@ -1,4 +1,4 @@
-<h1 align="center"> #👨‍💻 Lab E-Commerce 👩‍💻</h1>
+<h1 align="center"> 👨‍💻 Lab E-Commerce 👩‍💻</h1>
 
 <p align="center">http://purring-touch.surge.sh/</p>
 
